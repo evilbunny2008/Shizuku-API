@@ -15,4 +15,5 @@
 local.properties
 /.idea
 example/build/
+example/gradlew
 gradle/
