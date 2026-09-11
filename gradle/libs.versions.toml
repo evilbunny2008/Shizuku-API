@@ -1,7 +1,7 @@
 [versions]
-agp = "9.2.1"
+agp = "9.4.0"
 androidx-annotation = "1.10.0"
-androidx-core = "1.18.0"
+androidx-core = "1.19.0"
 hidden-api = "4.4.0"
 refine = "4.4.0"
 

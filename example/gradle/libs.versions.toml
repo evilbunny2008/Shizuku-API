@@ -1,11 +1,11 @@
 [versions]
-agp = "9.2.1"
+agp = "9.4.0"
 androidx-activity = "1.13.0"
-androidx-appcompat = "1.7.1"
-androidx-core = "1.18.0"
-androidx-lifecycle = "2.10.0"
+androidx-appcompat = "1.8.0"
+androidx-core = "1.19.0"
+androidx-lifecycle = "2.11.0"
 hiddenapibypass = "6.1"
-kotlinx-coroutines = "1.10.2"
+kotlinx-coroutines = "1.11.0"
 
 [libraries]
 androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidx-activity" }

@@ -6,13 +6,13 @@ pluginManagement {
 }
 
 plugins {
-    id "com.android.settings" version "9.2.1"
+    id "com.android.settings" version "9.4.0"
 }
 
 android {
-    compileSdk = 36
+    compileSdk = 37
     minSdk = 24
-    targetSdk = 36
+    targetSdk = 37
 }
 
 dependencyResolutionManagement {
