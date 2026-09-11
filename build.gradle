@@ -79,19 +79,6 @@ subprojects {
                 }
             }
         }
-
-        signing {
-            def signingKey = findProperty("signingKey")
-            def signingPassword = findProperty("signingPassword")
-            def secretKeyRingFile = findProperty("signing.secretKeyRingFile")
-
-            if (secretKeyRingFile != null && file(secretKeyRingFile).exists()) {
-                sign publishing.publications
-            } else if (signingKey != null) {
-                useInMemoryPgpKeys(signingKey, signingPassword)
-                sign publishing.publications
-            }
-        }
     }
 }
 
