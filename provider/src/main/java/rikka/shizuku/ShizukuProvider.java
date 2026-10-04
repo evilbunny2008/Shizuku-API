@@ -16,6 +16,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.IntentCompat;
+import androidx.core.os.BundleCompat;
 
 import moe.shizuku.api.BinderContainer;
 import rikka.sui.Sui;
@@ -122,7 +124,7 @@ public class ShizukuProvider extends ContentProvider {
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                BinderContainer container = intent.getParcelableExtra(EXTRA_BINDER);
+                BinderContainer container = IntentCompat.getParcelableExtra(intent, EXTRA_BINDER, BinderContainer.class);
                 if (container != null && container.binder != null) {
                     Log.i(TAG, "binder received from broadcast");
                     Shizuku.onBinderReceived(container.binder, context.getPackageName());
@@ -148,7 +150,7 @@ public class ShizukuProvider extends ContentProvider {
         if (reply != null) {
             reply.setClassLoader(BinderContainer.class.getClassLoader());
 
-            BinderContainer container = reply.getParcelable(EXTRA_BINDER);
+            BinderContainer container = BundleCompat.getParcelable(reply, EXTRA_BINDER, BinderContainer.class);
             if (container != null && container.binder != null) {
                 Log.i(TAG, "Binder received from other process");
                 Shizuku.onBinderReceived(container.binder, context.getPackageName());
@@ -214,7 +216,7 @@ public class ShizukuProvider extends ContentProvider {
             return;
         }
 
-        BinderContainer container = extras.getParcelable(EXTRA_BINDER);
+        BinderContainer container = BundleCompat.getParcelable(extras, EXTRA_BINDER, BinderContainer.class);
         if (container != null && container.binder != null) {
             Log.d(TAG, "binder received");
 
